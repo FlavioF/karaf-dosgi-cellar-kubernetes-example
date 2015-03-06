@@ -1,0 +1,37 @@
+id: app2
+kind: ReplicationController
+apiVersion: v1beta1
+desiredState:
+  replicas: 2
+  replicaSelector:
+    name: app2
+  podTemplate:
+    desiredState:
+      manifest:
+        version: v1beta1
+        id: app2
+        containers:
+          - name: app2
+            image: flaviof/app2
+            cpu: 1000
+            volumeMounts:
+              - name : "maven-repo"
+                mountPath: "/root/.m2/repository"
+                readOnly: false
+            ports:
+              - name: hazelcast
+                containerPort: 5701
+              - name: http
+                containerPort: 8181
+              - name: jolokia
+                containerPort: 8778
+        volumes:
+          - name: maven-repo
+            source:
+              hostDir:
+                path: /home/core/.m2/repository
+    labels:
+      name: app2
+      cellar: true
+    labels:
+      name: app2

@@ -1,0 +1,1 @@
+# karaf-cellar-kubernetses-example
