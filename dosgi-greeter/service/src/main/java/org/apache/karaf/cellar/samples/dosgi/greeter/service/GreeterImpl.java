@@ -13,29 +13,20 @@
  */
 package org.apache.karaf.cellar.samples.dosgi.greeter.service;
 
-import java.util.Map;
 import org.apache.karaf.cellar.samples.dosgi.greeter.api.Greet;
 import org.apache.karaf.cellar.samples.dosgi.greeter.api.GreetResponse;
 import org.apache.karaf.cellar.samples.dosgi.greeter.api.Greeter;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * Implementation of the Greeter servicce.
  */
 public class GreeterImpl implements Greeter {
 
-  private static final Logger log = LoggerFactory.getLogger(GreeterImpl.class);
-
   private int counter = 0;
   private String id;
 
   public GreeterImpl(String id) {
     this.id = id;
-  }
-
-  public void activate(Map<String, ?> configuration) {
-    log.info("Activating Greeter service.");
   }
 
   @Override

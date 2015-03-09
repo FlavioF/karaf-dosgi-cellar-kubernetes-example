@@ -5,3 +5,6 @@ gen
 
 #Temp Files
 *~
+
+.DS_Store
+
