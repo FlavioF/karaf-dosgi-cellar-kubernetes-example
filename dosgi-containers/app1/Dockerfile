@@ -1,4 +1,3 @@
-# You know you love it
 FROM dockerfile/java:oracle-java8
 
 # expose HTTP, Jolokia and Hazelcast (for Cellar)
@@ -38,9 +37,6 @@ ENV PATH $PATH:$KARAF_HOME/bin
 # Karaf Cellar Kubernetes configuration in $KARAF/etc
 ADD org.apache.karaf.cellar.kubernetes.cfg /karaf/etc/
 
-# put app features.xml to $KARAF/deploy
-ADD target/classes/features.xml /karaf/deploy/
-
 # Build logstash-forwarder
 RUN cd / && \
   git clone git://github.com/elasticsearch/logstash-forwarder.git source && \
@@ -57,6 +53,9 @@ RUN cd / && \
 # Add configuration files
 ADD logstash-forwarder.conf /logstash-forwarder/logstash-forwarder.conf
 ADD certs /logstash-forwarder/certs
+
+# put app features.xml to $KARAF/deploy
+ADD target/classes/features.xml /karaf/deploy/
 
 # Add runnable scripts
 #ADD run_logstash_forwarder.sh /etc/service/logstash-forwarder/run

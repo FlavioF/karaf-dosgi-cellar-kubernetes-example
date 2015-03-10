@@ -1,4 +1,4 @@
-karaf-cellar-kubernetes-example
+Karaf Cellar Kubernetes Example
 ============================
 This is a simple example of Karaf Cellar DOSGi Application with Kubernetes Cluster in a Dev Environment.
 
@@ -136,7 +136,9 @@ admin@root()> dosgi-greeter:greet Hello 2
 
 # Acknowledgements
 
-Thanks to [Pires](https://github.com/pires) for all the help and Kubernetes Cluster and thanks to [Alberto](https://github.com/albertocsm).
-Thanks to Karaf Cellar for the great [DOSGi Greeter Example](https://github.com/apache/karaf-cellar/tree/master/samples/dosgi-greeter) 
+Thanks to [Pires](https://github.com/pires) for all the help and Kubernetes Cluster.
 
+Thanks to [Alberto](https://github.com/albertocsm) for the help when debugging.
+
+Thanks to Karaf Cellar for the great [DOSGi Greeter Example](https://github.com/apache/karaf-cellar/tree/master/samples/dosgi-greeter) 
 
