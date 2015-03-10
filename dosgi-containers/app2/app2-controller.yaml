@@ -2,7 +2,7 @@ id: app2
 kind: ReplicationController
 apiVersion: v1beta1
 desiredState:
-  replicas: 2
+  replicas: 1
   replicaSelector:
     name: app2
   podTemplate:
@@ -32,6 +32,4 @@ desiredState:
                 path: /home/core/.m2/repository
     labels:
       name: app2
-      cellar: true
-    labels:
-      name: app2
+      cellar: "true"

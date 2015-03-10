@@ -29,6 +29,7 @@ public class GreetCommand extends OsgiCommandSupport {
 
     private Greeter greeter;
 
+    @Override
     protected Object doExecute() throws Exception {
         GreeterClient greeterClient = new GreeterClient(greeter, greetMessage,iterations);
         greeterClient.start();

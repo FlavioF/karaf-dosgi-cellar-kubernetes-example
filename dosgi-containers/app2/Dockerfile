@@ -38,6 +38,8 @@ ENV PATH $PATH:$KARAF_HOME/bin
 # Karaf Cellar Kubernetes configuration in $KARAF/etc
 ADD org.apache.karaf.cellar.kubernetes.cfg /karaf/etc/
 
+RUN echo "log4j.rootLogger=TRACE, out, osgi:*" >> /karaf/etc/org.ops4j.pax.logging.cfg
+
 # put app features.xml to $KARAF/deploy
 ADD target/classes/features.xml /karaf/deploy/
 
