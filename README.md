@@ -42,6 +42,12 @@ Vagrant.configure("2") do |config|
 ```
 * Follow the instructions described in [Kubenertes Cluster](https://github.com/pires/kubernetes-vagrant-coreos-cluster)
 
+
+Create the cluster
+```
+MVN_SYNC_FOLDER="~/.m2/repository" NODE_MEM=2048 NODE_CPUS=1 NUM_INSTANCES=1 vagrant up
+```
+
 # Build
 
 ## Clone
