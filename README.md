@@ -16,27 +16,7 @@ If you're looking for details on how kubernetes cluster works take a look at [Ku
 git clone https://github.com/pires/kubernetes-vagrant-coreos-cluster.git
 ```
 * Add sync folder configuration to Vagrantfile to share your host maven repository with the VM
-
-Old
 ```
-Vagrant.configure("2") do |config|
-  # always use Vagrants' insecure key
-  config.ssh.insert_key = false
-
-  config.vm.box = "coreos-%s" % $update_channel
-  config.vm.box_version = ">= #{$coreos_version}"
-  config.vm.box_url = "#{upstream}/coreos_production_vagrant.json"
-```
-New
-```
-Vagrant.configure("2") do |config|
-  # always use Vagrants' insecure key
-  config.ssh.insert_key = false
-
-  config.vm.box = "coreos-%s" % $update_channel
-  config.vm.box_version = ">= #{$coreos_version}"
-  config.vm.box_url = "#{upstream}/coreos_production_vagrant.json"
-
   # Configure maven repository to use local files
   config.vm.synced_folder "~/.m2/repository", "/home/core/.m2/repository", :nfs => true, :mount_options => ['nolock,vers=3,udp,noatime']
 ```
@@ -50,11 +30,37 @@ git clone https://github.com/FlavioF/karaf-cellar-kubernetes-example.git
 cd karaf-cellar-kubernetes-example
 ```
 
-## Build Your Application Containers
+## Build Docker Containers
+### Build Karaf Image
+Note: You can use an available image
+
+* Move to docker/docker-karaf/
+* Build Docker Image
+```
+    docker build --rm -t=flaviof/karaf .
+```
+* Push Image to Docker Hub
+```
+    docker push flaviof/karaf1
+```
+### Build Karaf Cellar Kubernetes Image
+This image adds cellar and kubernetes related configurations to Karaf (eg. Hazelcast.xml)
+
+* Move to docker/docker-karaf-cellar-kubernetes/
+* Build Docker Image
+```
+    docker build --rm -t=flaviof/karaf-cellar-kubernetes .
+```
+* Push Image to Docker Hub
+```
+    docker push flaviof/karaf-cellar-kubernetes
+```
+
 ### Build App 1 (Service) Container
+This image adds a feature containing Gretter Service and Gretter API bundles.
 
 * Move to dosgi-containers/app1/
-* Install with manven
+* Compile it with maven
 ```
     mvn clean install
 ```
@@ -68,8 +74,10 @@ cd karaf-cellar-kubernetes-example
 ```
 
 ### Build App 2 (Client) Container
+This image adds a feature containing Gretter Client and Gretter API bundles.
+
 * Move to dosgi-containers/app2/
-* Install with manven
+* Compile it with maven
 ```
     mvn clean install
 ```
@@ -141,4 +149,3 @@ Thanks to [Pires](https://github.com/pires) for all the help and Kubernetes Clus
 Thanks to [Alberto](https://github.com/albertocsm) for the help when debugging.
 
 Thanks to Karaf Cellar for the great [DOSGi Greeter Example](https://github.com/apache/karaf-cellar/tree/master/samples/dosgi-greeter) 
-

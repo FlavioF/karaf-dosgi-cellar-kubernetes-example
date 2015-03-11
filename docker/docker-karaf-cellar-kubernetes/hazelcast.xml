@@ -3,12 +3,12 @@
            xmlns="http://www.hazelcast.com/schema/config"
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <group>
-        <name>someGroup</name>
-        <password>someSecret</password>
+        <name>cellar</name>
+        <password>pass</password>
     </group>
     <management-center enabled="false">http://localhost:8080/mancenter</management-center>
     <network>
-        <port auto-increment="false" port-count="100">5701</port>
+        <port auto-increment="true" port-count="100">5701</port>
         <outbound-ports>
             <!--
                 Allowed port range when connecting to other nodes.
@@ -22,7 +22,6 @@
                 <multicast-port>54327</multicast-port>
             </multicast>
             <tcp-ip enabled="true">
-                <interface></interface>
             </tcp-ip>
             <aws enabled="false">
                 <access-key>my-access-key</access-key>
@@ -200,4 +199,4 @@
     </serialization>
 
     <services enable-defaults="true" />
-</hazelcast>[
+</hazelcast>

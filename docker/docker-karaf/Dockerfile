@@ -1,4 +1,3 @@
-# You know you love it
 FROM dockerfile/java:oracle-java8
 
 # expose HTTP, Jolokia and Hazelcast (for Cellar)
@@ -35,15 +34,11 @@ RUN wget http://central.maven.org/maven2/org/jolokia/jolokia-jvm/${JOLOKIA_VERSI
 ENV KARAF_OPTS -javaagent:/$KARAF_HOME/jolokia-agent.jar=host=0.0.0.0,port=8778,authMode=jaas,realm=karaf,user=admin,password=admin,agentId=$HOSTNAME
 ENV PATH $PATH:$KARAF_HOME/bin
 
-# Karaf Cellar Kubernetes configuration in $KARAF/etc
-ADD org.apache.karaf.cellar.kubernetes.cfg /karaf/etc/
-
-RUN echo "log4j.rootLogger=TRACE, out, osgi:*" >> /karaf/etc/org.ops4j.pax.logging.cfg
-
-# put app features.xml to $KARAF/deploy
-ADD target/classes/features.xml /karaf/deploy/
-
+# Add runnable scripts
 ADD run_karaf.sh /etc/service/karaf/run
 RUN chmod u+x /etc/service/karaf/run
+
+# To run in debug mode
+#RUN echo "log4j.rootLogger=TRACE, out, osgi:*" >> /karaf/etc/org.ops4j.pax.logging.cfg
 
 CMD ["/usr/bin/runsvdir", "-P", "/etc/service"]
