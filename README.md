@@ -45,7 +45,7 @@ Vagrant.configure("2") do |config|
 
 Create the cluster
 ```
-MVN_SYNC_FOLDER="~/.m2/repository" NODE_MEM=2048 NODE_CPUS=1 NUM_INSTANCES=1 vagrant up
+COREOS_VERSION="612.1.0" MVN_SYNC_FOLDER="~/.m2/repository" NODE_MEM=2048 NODE_CPUS=1 NUM_INSTANCES=1 vagrant up
 ```
 
 # Build
