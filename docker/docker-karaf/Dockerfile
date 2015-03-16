@@ -15,7 +15,9 @@ ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 RUN echo "deb http://archive.ubuntu.com/ubuntu trusty main universe" > /etc/apt/sources.list && \
     apt-get update && \
     apt-get upgrade -y && \
-    apt-get -y install git golang runit
+    apt-get -y install git golang runit && \
+    apt-get autoclean && apt-get clean && apt-get autoremove
+   
 
 # download, extract and install Karaf
 WORKDIR /tmp

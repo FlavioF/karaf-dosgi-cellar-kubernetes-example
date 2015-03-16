@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker build --rm -t=fferreira/karaf .
+docker build --rm -t=flaviof/karaf .
