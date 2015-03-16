@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker build --rm -t=fferreira/app1 .
+docker build --rm -t=flaviof/app1 .
