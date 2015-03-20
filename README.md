@@ -15,10 +15,14 @@ If you're looking for details on how kubernetes cluster works take a look at [Ku
 ```
 git clone https://github.com/pires/kubernetes-vagrant-coreos-cluster.git
 ```
-* Add sync folder configuration to Vagrantfile to share your host maven repository with the VM
+* Add sync folder configuration to synced_folders.yaml 
 ```
-  # Configure maven repository to use local files
-  config.vm.synced_folder "~/.m2/repository", "/home/core/.m2/repository", :nfs => true, :mount_options => ['nolock,vers=3,udp,noatime']
+ - name: default
+   source: ~/.m2/repository
+   destination: /home/core/.m2/repository
+   nfs: true
+   mount_options: 'nolock,vers=3,udp,noatime'
+   disabled: false
 ```
 * Follow the instructions described in [Kubenertes Cluster](https://github.com/pires/kubernetes-vagrant-coreos-cluster)
 
