@@ -8,7 +8,7 @@
     </group>
     <management-center enabled="false">http://localhost:8080/mancenter</management-center>
     <network>
-        <port auto-increment="true" port-count="100">5701</port>
+        <port auto-increment="false" port-count="100">5701</port>
         <outbound-ports>
             <!--
                 Allowed port range when connecting to other nodes.
@@ -18,7 +18,10 @@
         </outbound-ports>
         <join>
             <multicast enabled="false" />
-            <tcp-ip enabled="true" />
+            <tcp-ip enabled="true">
+		<member>10.244.60.0-254</member>
+		<member>10.244.101.0-254</member>
+	    </tcp-ip>
             <aws enabled="false" />
         </join>
         <interfaces enabled="false">
@@ -184,8 +187,4 @@
     </serialization>
 
     <services enable-defaults="true" />
-
-    <properties>
-        <property name="hazelcast.merge.first.run.delay.seconds">10</property>
-    </properties>
 </hazelcast>
