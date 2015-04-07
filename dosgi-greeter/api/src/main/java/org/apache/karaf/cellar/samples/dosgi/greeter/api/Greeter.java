@@ -22,6 +22,6 @@ public interface Greeter {
      * Returns a greet message.
      * @return
      */
-    public GreetResponse greet(Greet greet);
+    public <E extends Enum> GreetResponse greet(E event, Greet greet);
 
 }

@@ -1,5 +1,4 @@
-# You know you love it
-FROM flaviof/karaf-cellar-kubernetes
+FROM bikeemotion/karaf-cellar
 
 # put app features.xml to $KARAF/deploy
 ADD target/classes/features.xml /karaf/deploy/

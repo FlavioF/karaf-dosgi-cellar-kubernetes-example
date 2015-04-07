@@ -30,11 +30,13 @@ public class GreeterImpl implements Greeter {
   }
 
   @Override
-  public GreetResponse greet(Greet greet) {
+  public <E extends Enum> GreetResponse greet(E event, Greet greet) {
+    System.out.println("greet.....");
     String message = greet.getMessage();
     String response = message + "."
         + String.format("Hello from node %s count %s.", id, counter++);
     GreetResponse greetResponse = new GreetResponse(greet, response);
+    System.out.println("greet done with success");
     return greetResponse;
   }
 
