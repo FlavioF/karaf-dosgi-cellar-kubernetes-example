@@ -13,16 +13,8 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <java.version>1.7</java.version>
     <fabric8.version>2.2-SNAPSHOT</fabric8.version>
-    <cellar.version>3.0.1</cellar.version>
+    <cellar.version>3.0.2</cellar.version>
   </properties>
-  
-  <dependencies>
-    <dependency>
-      <groupId>io.fabric8</groupId>
-      <artifactId>kubernetes-api</artifactId>
-      <version>${fabric8.version}</version>
-    </dependency>
-  </dependencies>
   
   <build>
     <resources>

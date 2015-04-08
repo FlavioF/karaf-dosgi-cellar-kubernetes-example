@@ -1,6 +1,9 @@
 package org.apache.karaf.cellar.samples.dosgi.greeter.api;
 
-public enum GreeterEvent {
+public class GreeterEvent implements MyEvent {
 
-  TEST1
+  @Override
+  public String shout() {
+    return "YOOOOOOOOOO!";
+  }
 }
