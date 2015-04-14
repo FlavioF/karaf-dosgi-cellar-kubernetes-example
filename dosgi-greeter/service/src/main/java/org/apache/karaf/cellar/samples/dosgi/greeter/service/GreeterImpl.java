@@ -43,6 +43,11 @@ public class GreeterImpl implements Greeter {
     GreetResponse greetResponse = new GreetResponse(greet, response);
 
     System.out.println("greet done with success");
+
+    if (message.equals("x")) {
+      throw new RuntimeException(">>>>>>>>>>>>This is My Exception<<<<<<<<<<<<<<<<<<<");
+    }
+
     return greetResponse;
   }
 }
