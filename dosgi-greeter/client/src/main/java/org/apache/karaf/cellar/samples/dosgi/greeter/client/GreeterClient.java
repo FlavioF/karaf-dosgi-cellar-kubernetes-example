@@ -16,6 +16,8 @@ package org.apache.karaf.cellar.samples.dosgi.greeter.client;
 import org.apache.karaf.cellar.samples.dosgi.greeter.api.Greet;
 import org.apache.karaf.cellar.samples.dosgi.greeter.api.GreetResponse;
 import org.apache.karaf.cellar.samples.dosgi.greeter.api.Greeter;
+import org.apache.karaf.cellar.samples.dosgi.greeter.api.GreeterEvent;
+import org.apache.karaf.cellar.samples.dosgi.greeter.api.MyEvent;
 
 /**
  * Call a remote Greeter service.
@@ -35,7 +37,7 @@ public class GreeterClient {
     public void start() {
         Greet greet  = new Greet(greetMessage);
         for (int i = 0; i < count; i++) {
-            GreetResponse greetResponse = greeter.greet(greet);
+            GreetResponse greetResponse = greeter.greet(new GreeterEvent(), greet);
             if(greetResponse != null) {
                 System.out.println(greetResponse.getResponse());
             } else System.out.println("Time out!");

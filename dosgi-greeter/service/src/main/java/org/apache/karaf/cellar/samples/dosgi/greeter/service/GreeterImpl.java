@@ -16,6 +16,7 @@ package org.apache.karaf.cellar.samples.dosgi.greeter.service;
 import org.apache.karaf.cellar.samples.dosgi.greeter.api.Greet;
 import org.apache.karaf.cellar.samples.dosgi.greeter.api.GreetResponse;
 import org.apache.karaf.cellar.samples.dosgi.greeter.api.Greeter;
+import org.apache.karaf.cellar.samples.dosgi.greeter.api.MyEvent;
 
 /**
  * Implementation of the Greeter servicce.
@@ -30,12 +31,23 @@ public class GreeterImpl implements Greeter {
   }
 
   @Override
-  public GreetResponse greet(Greet greet) {
+  public GreetResponse greet(MyEvent myEvent, Greet greet) {
+
+    System.out.println("greet.....");
+
     String message = greet.getMessage();
-    String response = message + "."
-        + String.format("Hello from node %s count %s.", id, counter++);
+    String response = message
+        + "."
+        + String.format("Hello from node %s count %s. ----------> %s", id,
+            counter++, myEvent.shout());
     GreetResponse greetResponse = new GreetResponse(greet, response);
+
+    System.out.println("greet done with success");
+
+    if (message.equals("x")) {
+      throw new RuntimeException(">>>>>>>>>>>>This is My Exception<<<<<<<<<<<<<<<<<<<");
+    }
+
     return greetResponse;
   }
-
 }
