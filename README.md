@@ -28,17 +28,17 @@ Note: You can use an available image
 ```
     docker push flaviof/karaf1
 ```
-### Build Karaf Cellar Kubernetes Image
+### Build Karaf Cellar Image
 This image adds cellar and kubernetes related configurations to Karaf (eg. Hazelcast.xml)
 
-* Move to docker/docker-karaf-cellar-kubernetes/
+* Move to docker/docker-karaf-cellar/
 * Build Docker Image
 ```
-    docker build --rm -t=flaviof/karaf-cellar-kubernetes .
+    docker build --rm -t=flaviof/karaf-cellar .
 ```
 * Push Image to Docker Hub
 ```
-    docker push flaviof/karaf-cellar-kubernetes
+    docker push flaviof/karaf-cellar
 ```
 
 ### Build App 1 (Service) Container
