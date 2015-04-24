@@ -1,6 +1,8 @@
-Karaf Cellar Kubernetes Example
+Karaf DOSGi Cellar Example
 ============================
 This is a simple example of Karaf Cellar DOSGi Application.
+
+Note: This only works with the version of Karaf Cellar available [here](https://github.com/albertocsm/karaf-cellar) since the original version is still with blocking issues to test it successfully (look the the open PRs [here](https://github.com/apache/karaf-cellar) for more information).
 
 # Pre-requisites
 
