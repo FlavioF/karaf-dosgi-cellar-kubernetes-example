@@ -17,8 +17,8 @@
             <ports>0</ports>
         </outbound-ports>
         <join>
-            <multicast enabled="true" />
-            <tcp-ip enabled="false" />
+            <multicast enabled="false" />
+            <tcp-ip enabled="true" />
             <aws enabled="false" />
         </join>
         <interfaces enabled="false">
