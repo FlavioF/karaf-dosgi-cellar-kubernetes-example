@@ -4,6 +4,8 @@ This is a simple example of Karaf Cellar DOSGi Application with Kubernetes Clust
 
 If you are looking for an DOSGi example not using Kubernetes change to this [branch](https://github.com/FlavioF/karaf-cellar-kubernetes-example/tree/karaf_cellar_example)
 
+Note: This only works with the version of Karaf Cellar available [here](https://github.com/albertocsm/karaf-cellar) since the original version is still with blocking issues to test it successfully (look the the open PRs [here](https://github.com/apache/karaf-cellar) for more information).
+
 # Pre-requisites
 
 * JDK 8
