@@ -18,4 +18,4 @@ nb-configuration.xml
 
 #Temp files
 *~
-.DS_Store
+*.DS_Store

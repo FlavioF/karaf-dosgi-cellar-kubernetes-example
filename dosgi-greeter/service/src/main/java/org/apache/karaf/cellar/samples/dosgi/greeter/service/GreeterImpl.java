@@ -17,12 +17,16 @@ import org.apache.karaf.cellar.samples.dosgi.greeter.api.Greet;
 import org.apache.karaf.cellar.samples.dosgi.greeter.api.GreetResponse;
 import org.apache.karaf.cellar.samples.dosgi.greeter.api.Greeter;
 import org.apache.karaf.cellar.samples.dosgi.greeter.api.MyEvent;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Implementation of the Greeter servicce.
  */
 public class GreeterImpl implements Greeter {
 
+  private static final transient Logger log = LoggerFactory.getLogger(GreeterImpl.class);
+  
   private int counter = 0;
   private String id;
 
@@ -33,7 +37,7 @@ public class GreeterImpl implements Greeter {
   @Override
   public GreetResponse greet(MyEvent myEvent, Greet greet) {
 
-    System.out.println("greet.....");
+    log.info("Processing Greet..");
 
     String message = greet.getMessage();
     String response = message
@@ -42,12 +46,13 @@ public class GreeterImpl implements Greeter {
             counter++, myEvent.shout());
     GreetResponse greetResponse = new GreetResponse(greet, response);
 
-    System.out.println("greet done with success");
-
     if (message.equals("x")) {
       throw new RuntimeException(">>>>>>>>>>>>This is My Exception<<<<<<<<<<<<<<<<<<<");
     }
 
+    
+    log.info("Responding to greet with message <{}>", response);
+    
     return greetResponse;
   }
 }

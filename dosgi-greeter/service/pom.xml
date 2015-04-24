@@ -40,7 +40,8 @@
       <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-api</artifactId>
-        <version>1.7.10</version>
+        <version>${slf4j.version}</version>
+        <scope>provided</scope>
       </dependency>
     </dependencies>
 
@@ -57,6 +58,7 @@
                       <Import-Package>
                         org.apache.karaf.cellar.samples.dosgi.greeter.api,
                         org.apache.karaf.cellar.core,
+                        org.slf4j,
                         org.osgi*
                       </Import-Package>
                     </instructions>

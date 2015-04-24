@@ -185,4 +185,8 @@
 
     <services enable-defaults="true" />
 
+    <properties>
+        <property name="hazelcast.max.no.heartbeat.seconds">10</property>
+    </properties>
+
 </hazelcast>

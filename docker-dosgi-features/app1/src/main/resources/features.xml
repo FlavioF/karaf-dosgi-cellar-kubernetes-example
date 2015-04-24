@@ -10,7 +10,6 @@
 
     <bundle>mvn:org.flaviof.samples.karaf.greeter/greeter-api/0.1-SNAPSHOT</bundle>
     <bundle>mvn:org.flaviof.samples.karaf.greeter/greeter-service/0.1-SNAPSHOT</bundle>
-    
   </feature>
 
 </features>
